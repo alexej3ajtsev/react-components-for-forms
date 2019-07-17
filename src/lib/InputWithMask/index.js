@@ -2,11 +2,8 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import InputMask from 'react-input-mask'
 import styled from 'styled-components'
+import Wrapper from '../Wrapper'
 
-const Wrapper = styled.div`
-    margin: 2rem 0;
-    position: relative;
-`
 const StyledInput = styled.input`
     max-width: 24rem;
     width: 100%;
