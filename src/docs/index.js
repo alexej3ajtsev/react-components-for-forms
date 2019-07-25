@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {InputWithMask} from '../lib/InputWithMask';
 import {Checkbox} from '../lib/Checkbox';
+import {Button} from '../lib/Button';
 
 const App = () => (
   <div>
@@ -12,18 +13,19 @@ const App = () => (
       <InputWithMask
         label="Your phone"
         mask="+7 (999) 999 99 99"
+        borderRaduis="3px"
+        border="1px solid #ddd"
+        borderBottom="1px solid #ddd"
         onChange={value => console.log(value)}
       />
     </Fragment>
     <Fragment>
       <h2>Checkbox</h2>
-      <p>Checkbox</p>
-      <Checkbox color="red"/>
+      <Checkbox color="red" checked label="Я согласен с условиями"/>
     </Fragment>
     <Fragment>
-      <h2>Checkbox checked</h2>
-      <p>Checkbox</p>
-      <Checkbox color="red" checked/>
+      <h2>Button</h2>
+      <Button>Button</Button>
     </Fragment>
   </div>
 );

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Wrapper from '../Wrapper'
+import styled from 'styled-components'
 
 const UncheckedSvg = () => {
     return(
@@ -15,6 +16,19 @@ const UncheckedSvg = () => {
     )
 }
 
+const CheckboxWrapper = styled.span`
+    > input {
+        opacity: 0;
+    }
+`
+
+const CheckLabel = styled.label`
+    position: relative;
+    top: -4px;
+    left: -14px;
+    user-select: none;
+`
+
 const CheckedSvg = ({color}) => {
     return(
         <svg
@@ -29,12 +43,23 @@ const CheckedSvg = ({color}) => {
     )
 }
 
-const Checkbox = ({color, checked}) => {
+const Checkbox = ({label="[DEFAULT LABEL]", color, checked=false, onChange=(checked)=> console.log('change:checked', checked) }) => {
+    const [check, setCheck] = useState(checked)
+    const checkHandle = () => {
+        setCheck(!check)
+        onChange(!check)
+    }
     return(
         <Wrapper>
-            { checked ?
+            { check ?
                 <CheckedSvg color={color}/> :
-                <UncheckedSvg color={color}/>  }
+                <UncheckedSvg /> }
+            <CheckLabel onChange={checkHandle}>
+                <CheckboxWrapper>
+                    <input type="checkbox" checked={check}/>
+                    {label}
+                </CheckboxWrapper>
+            </CheckLabel>
         </Wrapper>
     )
 }

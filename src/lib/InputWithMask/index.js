@@ -10,6 +10,7 @@ const StyledInput = styled.input`
     color: ${props => props.color ? props.color : '#222'};
     position: relative;
     padding: .4rem;
+    box-sizing:  border-box;
     background-color: ${props => props.backgroundColor ? props.backgroundColor : '#f2f2f2'};
     border: ${props => props.border ? props.border : '2px solid transparent'};
     border-bottom: ${props => props.borderBottom ? props.borderBottom : '2px solid #ababab'};
